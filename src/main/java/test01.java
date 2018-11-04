@@ -14,28 +14,28 @@ class test01 {
     private static ArrayList<Integer[]> t = new ArrayList<>();
 
     public static void main(String[] args) {
-        int cic = 0;
-        boolean mm =true;
-        Integer[] s = {0, 5, 10, 0, 11, 14, 13, 4, 11, 8, 8, 7, 1, 4, 12, 11};
+        int record = 0;
+        boolean status =true;
+        Integer[] line = {0, 5, 10, 0, 11, 14, 13, 4, 11, 8, 8, 7, 1, 4, 12, 11};
 
-        t.add(s);
+        t.add(line);
 
-        while(mm) {
-            Integer[] s_add = addt(t.get(cic++));
-            for(int ii=0; ii < t.size(); ii++ ) {
-                if (Arrays.equals(t.get(ii), s_add)) {
-                    for(int iii: s_add)
-                        System.out.print( " " + iii);
-                    System.out.print( " " + (cic -ii) + " " +cic);
-                    mm = false;
+        while(status) {
+            Integer[] line_add = get_max_value(t.get(record++));
+            for(int n = 0; n < t.size(); n++ ) {
+                if (Arrays.equals(t.get(n), line_add)) {
+                    for(int line_old: line_add)
+                        System.out.print( " " + line_old);
+                    System.out.print( " " + (record - n) + " " + record);
+                    status = false;
                     break;
                 }
             }
-            t.add(s_add);
+            t.add(line_add);
         }
     }
 
-    private static Integer[] addt(Integer[] k) {
+    private static Integer[] get_max_value(Integer[] k) {
         int i, n;
         Integer[] s = new Integer[k.length];
         for( i = 0; i < s.length; i++) s[i] = k[i];
